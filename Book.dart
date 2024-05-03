@@ -60,6 +60,7 @@ void main() {
     }
   }
   
+  
   int cantidadStock = 0;
   while (true) {
     print('Ingrese la cantidad en stock del libro:');
@@ -80,18 +81,39 @@ void main() {
   Libro libro = Libro(titulo, autor, precio, cantidadStock);
 
   // Mostrar información del libro
+    
   libro.mostrarInformacion();
 
   // Realizar una compra de copias del libro
-  while (true) {
-    print('\n¿Cuántas copias desea comprar?');
-    String cantidadStr = stdin.readLineSync()!;
-    try {
-      int cantidadComprar = int.parse(cantidadStr);
-      libro.comprar(cantidadComprar);
-      break; // Salir del bucle después de realizar la compra
-    } catch (e) {
-      print('Error: Por favor ingrese un valor numérico válido.');
-    }
+while (true) {
+  print('\n¿Qué acción desea realizar?');
+  print('1. Comprar copias del libro');
+  print('2. Mostrar información del libro');
+  print('3. Salir');
+  
+  // Solicitar al usuario su elección
+  String opcionStr = stdin.readLineSync()!;
+  
+  switch (opcionStr) {
+    case '1':
+      print('\n¿Cuántas copias desea comprar?');
+      String cantidadStr = stdin.readLineSync()!;
+      try {
+        int cantidadComprar = int.parse(cantidadStr);
+        libro.comprar(cantidadComprar);
+      } catch (e) {
+        print('Error: Por favor ingrese un valor numérico válido.');
+      }
+      break;
+    case '2':
+      libro.mostrarInformacion();
+      break;
+    case '3':
+      print('Saliendo del programa...');
+      return;
+    default:
+      print('Opción inválida. Por favor, elija una opción válida.');
+      break;
   }
+}
 }
