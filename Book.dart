@@ -121,19 +121,22 @@ void main() {
       
       case '3':
         // Mostrar los títulos de los libros disponibles
-        print('\nLibros disponibles:');
+        print('\Libros disponibles:');
         for (int i = 0; i < libros.length; i++) {
           print('$i. ${libros[i].titulo}');
         }
         
-        print('\nSeleccione el número del libro para mostrar información:');
+        print('\nSeleccione el número del libro para mostrar información(o ingrese "m" para volver al menú principal):');
         String libroIndexStr = stdin.readLineSync()!;
+        if (libroIndexStr.toLowerCase()== 'm'){
+        break;
+        }
         int libroIndex = int.parse(libroIndexStr);
         
         if (libroIndex >= 0 && libroIndex < libros.length) {
           libros[libroIndex].mostrarInformacion();
         } else {
-          print('Error: Índice de libro inválido o erroeneo .');
+          print('Error: Índice de libro inválido o erroeneo.');
         }
         break;
       
