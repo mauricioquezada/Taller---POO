@@ -133,12 +133,12 @@ void main() {
         if (libroIndex >= 0 && libroIndex < libros.length) {
           libros[libroIndex].mostrarInformacion();
         } else {
-          print('Error: Índice de libro inválido.');
+          print('Error: Índice de libro inválido o erroeneo .');
         }
         break;
       
       case '4':
-        print('Saliendo del programa...');
+        print('Saliendo del compra tu libro en linea ...');
         return;
         
       default:
